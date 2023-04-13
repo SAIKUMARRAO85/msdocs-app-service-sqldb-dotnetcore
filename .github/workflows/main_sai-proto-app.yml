@@ -34,6 +34,9 @@ jobs:
       - name: dotnet install
         run: dotnet tool install -g dotnet-ef 
 
+      - name: Package install
+        run: dotnet add package Microsoft.AspNetCore.App.Runtime.win-x64 --version 7.0.5
+
       - name: dotnet migration
         run: dotnet ef migrations bundle -p DotNetCoreSqlDb/DotNetCoreSqlDb.csproj -o ${{env.DOTNET_ROOT}}/myapp/migrate --verbose
 
